@@ -36,9 +36,7 @@ function projectDisplay(project) {
         <p>${project.info}</p>
       </div>
     </div>
-  </a>`;
-  
-                     
+  </a>`;       
 }
 
 
@@ -48,7 +46,7 @@ $(document).ready(function () {
     $('.sidenav').sidenav();
   })
 
-  $.get('/projects', (result) => {
+  $.get('/api/project', (result) => {
     for (let items of result) {
       contentsCards(items)
       $('#carousel-projects').append(projectDisplay(items))
@@ -68,7 +66,7 @@ $(document).ready(function () {
     };
 
     var settings = {
-      "url": "/projects",
+      "url": "/api/project",
       "method": "POST",
       "timeout":0,
       "headers": {
